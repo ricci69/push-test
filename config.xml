@@ -8,8 +8,6 @@
         Apache Cordova Team
     </author>
     <plugin name="cordova-plugin-app-event" />
-    <plugin name="cordova-plugin-app-device" />
-    <plugin name="cordova-plugin-app-x-coast" />
     <plugin name="de.appplant.cordova.plugin.local-notification" />    
     <content src="index.html" />
     <access origin="*" />
