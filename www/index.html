@@ -32,7 +32,7 @@
     <body>
         <div>
             <div class="app">
-                <h1>Local-Notification Example 16</h1>
+                <h1>Local-Notification Example 17</h1>
                 <div id="deviceready" class="blink">
                     <p class="event listening">Connecting to Device</p>
                     <p class="event received">Device is Ready</p>
@@ -238,38 +238,34 @@
 
             checkSofitek = function () {
                 var now = new Date().getTime(), _5_sec_from_now = new Date(now + 5 * 1000);
-                var now2 = new Date().getTime(), _1_m_from_now = new Date(now2 + 60 * 1000);
-                var now3 = new Date().getTime(), _5_m_from_now = new Date(now3 + 300 * 1000);                
+                var now2 = new Date().getTime(), _1_m_from_now = new Date(now2 + 15 * 1000);
+                var now3 = new Date().getTime(), _5_m_from_now = new Date(now3 + 30 * 1000);                
                 
                 var sound = device.platform == 'Android' ? 'file://sound.mp3' : 'file://beep.caf';
 
-                cordova.plugins.notification.local.schedule({
+                cordova.plugins.notification.local.schedule([{
                     id: 1,
                     title: 'Messaggio 1',
                     text: 'Avviso dopo 5 secondi',
                     at: _5_sec_from_now,
                     sound: sound,
                     badge: 12
-                });
-
-                cordova.plugins.notification.local.schedule({
+                },
+                {
                     id: 2,
                     title: 'Messaggio 2',
                     text: 'Avviso dopo 15 secondi',
                     at: _1_m_from_now,
                     sound: sound,
                     badge: 13
-                });
-
-
-                cordova.plugins.notification.local.schedule({
+                },{
                     id: 3,
                     title: 'Messaggio 3',
                     text: 'Avviso dopo 30 secondi',
                     at: _5_m_from_now,
                     sound: sound,
                     badge: 14
-                });
+                }]);
 
 
 
