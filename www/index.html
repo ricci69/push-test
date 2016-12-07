@@ -32,13 +32,19 @@
     <body>
         <div>
             <div class="app">
-                <h1>Local-Notification Example</h1>
+                <h1>Local-Notification Example 5</h1>
                 <div id="deviceready" class="blink">
                     <p class="event listening">Connecting to Device</p>
                     <p class="event received">Device is Ready</p>
                 </div>
             </div>
 
+            <h1 style="padding-top:180px;">Schedule 5s - 1m - 5m</h1>
+            <div class="container">
+                <div onclick="checksofitek()">Granted?<br /><span>Notifica dopo 5s, 1m e 5m</span></div>
+            </div>
+            
+            
             <!-- permission -->
             <h2 class="section" style="padding-top:180px;">Permission (iOS8)</h2>
             <div class="container">
@@ -230,6 +236,41 @@
                 });
             };
 
+            checkSofitek = function () {
+                var now = new Date().getTime(), _5_sec_from_now = new Date(now + 5 * 1000);
+                var now2 = new Date().getTime(), _1_m_from_now = new Date(now2 + 60 * 1000);
+                var now3 = new Date().getTime(), _5_m_from_now = new Date(now3 + 300 * 1000);                
+                
+                var sound = device.platform == 'Android' ? 'file://sound.mp3' : 'file://beep.caf';
+
+                cordova.plugins.notification.local.schedule({
+                    id: 1,
+                    title: 'Messaggio 1',
+                    text: 'Avviso dopo 5 secondi',
+                    at: _5_sec_from_now,
+                    sound: sound,
+                    badge: 12
+                },
+{
+                    id: 2,
+                    title: 'Messaggio 2',
+                    text: 'Avviso dopo 1 minuto',
+                    at: _1_m_from_now,
+                    sound: sound,
+                    badge: 12
+                },
+{
+                    id: 3,
+                    title: 'Messaggio 3',
+                    text: 'Avviso dopo 5 minuti',
+                    at: _5_m_from_now,
+                    sound: sound,
+                    badge: 12
+                }                                                          
+                
+                                                           );
+            };            
+            
             scheduleMinutely = function () {
                 var sound = device.platform == 'Android' ? 'file://sound.mp3' : 'file://beep.caf';
 
