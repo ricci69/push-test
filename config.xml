@@ -7,6 +7,10 @@
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
     </author>
+    <gap:plugin name="de.appplant.cordova.plugin.local-notification" />
+    <gap:plugin name="cordova-plugin-app-event" />
+    <gap:plugin name="cordova-plugin-app-device" />
+    <gap:plugin name="cordova-plugin-app-x-coast" />
     <content src="index.html" />
     <access origin="*" />
     <preference name="windows-target-version" value="10.0" />
