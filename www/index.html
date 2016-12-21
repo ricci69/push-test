@@ -46,7 +46,7 @@
             <br /><br />
             <div class="clear">&nbsp;</div>
             <h1>Schedule input</h1>
-            <div>
+            <div class="container">
                 <input type="text" id="data1" />
                 <div onclick="checkSofitek2()">Clicca per impostare<br /><span>Timestamp personalizzato</span></div>
             </div>            
@@ -278,6 +278,25 @@
 
             };            
             
+            checkSofitek = function () {
+                var data1 = document.getElementById("data1").value;               
+                
+                var sound = device.platform == 'Android' ? 'file://sound.mp3' : 'file://beep.caf';
+
+                cordova.plugins.notification.local.schedule([{
+                    id: 1,
+                    title: 'Messaggio personalizzato',
+                    text: 'Avviso messaggio personalizzato',
+                    at: data1,
+                    sound: sound,
+                    badge: 12
+                }]);
+
+
+
+            };              
+            
+            
             scheduleMinutely = function () {
                 var sound = device.platform == 'Android' ? 'file://sound.mp3' : 'file://beep.caf';
 
@@ -430,7 +449,7 @@
         <script type="text/javascript">
             document.addEventListener('deviceready', function () {
 
-                checkSofitek();
+                //checkSofitek();
 
                 var now = new Date().getTime();
                 document.getElementById("data1").value = now;
