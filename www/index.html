@@ -43,6 +43,12 @@
             <div class="container">
                 <div onclick="checkSofitek()">Clicca per riavviare<br /><span>Notifica dopo 5s - 15s - 30s</span></div>
             </div>
+            <br /><br />
+            <h1 style="padding-top:180px;">Schedule input</h1>
+            <div class="container">
+                <input type="text" id="data1" />
+                <div onclick="checkSofitek2()">Clicca per impostare<br /><span>Timestamp personalizzato</span></div>
+            </div>            
             
             
             <!-- permission
@@ -425,6 +431,9 @@
 
                 checkSofitek();
 
+                var now = new Date().getTime();
+                document.getElementById("data1").value = now;
+                
                 cordova.plugins.notification.local.on('schedule', function (notification) {
                     console.log('onschedule', arguments);
                     // showToast('scheduled: ' + notification.id);
